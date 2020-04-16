@@ -12,8 +12,9 @@ entity bitreg_shift is
 end bitreg_shift;
 
 architecture Behavioral of bitreg_shift is
-
+begin
+shift:process(I, I_SHIFT_IN, sel, clock, enable)
 begin
 
-
+end process shift;
 end Behavioral;
