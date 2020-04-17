@@ -17,7 +17,7 @@ begin
 shift:process(I, I_SHIFT_IN, sel, clock, enable)
 begin
 if enable = '0' then
-    O <= "0000";
+    sig <= "0000"; --sig is signal so has "memory"
 elsif (clock-event and clock = '1' and enable = '1') then
     if sel = "00" then --hold, ie do nothing
     elsif sel = "01" then --shift left
