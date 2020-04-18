@@ -71,7 +71,7 @@ process
     ("10000000",'1',"10",'1','1',"11000000"),--shift right (192)
     ("10000000",'1',"01",'1','1',"10000000"),--shift left (128)
     ("10000000",'1',"00",'1','1',"10000000"),--hold
-    
+    --ENABLE = 0 for this block
     ("00010000",'0',"11",'0','0',"00000000"),--load 16 into register enable is 0 so does nothing
     ("00010000",'0',"01",'0','0',"00000000"),--shift left (32) enable is 0 so does nothing
     ("00010000",'0',"10",'0','0',"00000000"),--shift right (16) enable is 0 so does nothing
