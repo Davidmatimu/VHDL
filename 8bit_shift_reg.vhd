@@ -40,7 +40,7 @@ bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clo
 if sel = "01" then
     bitCarry1 <= I_Shift_In;
     bitCarry2 <= sig(3);
-elif sel = "10" then
+elsif sel = "10" then
     bit1Carry <= sig(4);
     bit2Carry <= I_Shift_In;
 else
