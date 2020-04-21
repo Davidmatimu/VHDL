@@ -9,7 +9,7 @@ entity bitreg_8shift is
            clock : in STD_LOGIC;
            enable : in STD_LOGIC;
            O : out STD_LOGIC_VECTOR (7 downto 0));
-           SHIFT_OUT : out STD_LOGIC;
+           --SHIFT_OUT : out STD_LOGIC;
 end bitreg_8shift;
 
 architecture Structural of bitreg_8shift is
