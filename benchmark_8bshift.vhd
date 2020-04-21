@@ -39,71 +39,71 @@ process
     constant patterns : pattern_array :=
 --Input,i_shift_in(shiftleft or right),sel,clk,enable,O
 --10 shiftleft, 01 shiftright, 11 load, 00 hold
-    (("00010000",'0',"11",'0','1',"00000000"),--load 16 into register
-    ("00010000",'0',"01",'0','1',"00000000"),--shift left (32)
-    ("00010000",'0',"10",'0','1',"00000000"),--shift right (16)
-    ("00010000",'0',"00",'0','1',"00000000"),--hold
-    ("01100000",'0',"11",'0','1',"00000000"),--load 96 into register
-    ("01100000",'0',"01",'0','1',"00000000"),--shift left (192)
-    ("01100000",'0',"10",'0','1',"00000000"),--shift right (96)
-    ("01100000",'0',"00",'0','1',"00000000"),--hold
-    ("00100000",'1',"11",'0','1',"00000000"),--load 32 into register
-    ("00100000",'1',"01",'0','1',"00000000"),--shift left (64)
-    ("00100000",'1',"10",'0','1',"00000000"),--shift right (32)
-    ("00100000",'1',"00",'0','1',"00000000"),--hold
-    ("01110000",'1',"11",'0','1',"00000000"),--load 112 into register
-    ("01110000",'1',"01",'0','1',"00000000"),--shift left (224)
-    ("01110000",'1',"10",'0','1',"00000000"),--shift right (112)
-    ("01110000",'1',"00",'0','1',"00000000"),--hold
-    ("00010000",'0',"11",'1','1',"00010000"),--load 16 into register
-    ("00010000",'0',"01",'1','1',"00100000"),--shift left (32)
-    ("00010000",'0',"10",'1','1',"00010000"),--shift right (16)
-    ("00010000",'0',"00",'1','1',"00010000"),--hold
-    ("01010000",'0',"11",'1','1',"01010000"),--load 82 into register
-    ("01010000",'0',"01",'1','1',"10100000"),--shift left (164)
-    ("01010000",'0',"10",'1','1',"01010000"),--shift right (82)
-    ("01010000",'0',"00",'1','1',"01010000"),--hold
-    ("00010000",'1',"11",'1','1',"00010000"),--load 16 into register
-    ("00010000",'1',"01",'1','1',"00100001"),--shift left (32)
-    ("00010000",'1',"10",'1','1',"00010000"),--shift right (16)
-    ("00010000",'1',"00",'1','1',"00010000"),--hold
-    ("10000000",'1',"11",'1','1',"10000000"),--load 128 into register
-    ("10000000",'1',"10",'1','1',"11000000"),--shift right (192)
-    ("10000000",'1',"01",'1','1',"10000000"),--shift left (128)
-    ("10000000",'1',"00",'1','1',"10000000"),--hold
+    (("00010000",'0','0','1',"11","00000000"),--load 16 into register
+    ("00010000",'0','0','1',"01","00000000"),--shift left (32)
+    ("00010000",'0','0','1',"10","00000000"),--shift right (16)
+    ("00010000",'0','0','1',"00","00000000"),--hold
+    ("01100000",'0','0','1',"11","00000000"),--load 96 into register
+    ("01100000",'0','0','1',"01","00000000"),--shift left (192)
+    ("01100000",'0','0','1',"10","00000000"),--shift right (96)
+    ("01100000",'0','0','1',"00","00000000"),--hold
+    ("00100000",'1','0','1',"11","00000000"),--load 32 into register
+    ("00100000",'1','0','1',"01","00000000"),--shift left (64)
+    ("00100000",'1','0','1',"10","00000000"),--shift right (32)
+    ("00100000",'1','0','1',"00","00000000"),--hold
+    ("01110000",'1','0','1',"11","00000000"),--load 112 into register
+    ("01110000",'1','0','1',"01","00000000"),--shift left (224)
+    ("01110000",'1','0','1',"10","00000000"),--shift right (112)
+    ("01110000",'1','0','1',"00","00000000"),--hold
+    ("00010000",'0','1','1',"11","00010000"),--load 16 into register
+    ("00010000",'0','1','1',"01","00100000"),--shift left (32)
+    ("00010000",'0','1','1',"10","00010000"),--shift right (16)
+    ("00010000",'0','1','1',"00","00010000"),--hold
+    ("01010000",'0','1','1',"11","01010000"),--load 82 into register
+    ("01010000",'0','1','1',"01","10100000"),--shift left (164)
+    ("01010000",'0','1','1',"10","01010000"),--shift right (82)
+    ("01010000",'0','1','1',"00","01010000"),--hold
+    ("00010000",'1','1','1',"11","00010000"),--load 16 into register
+    ("00010000",'1','1','1',"01","00100001"),--shift left (32)
+    ("00010000",'1','1','1',"10","00010000"),--shift right (16)
+    ("00010000",'1','1','1',"00","00010000"),--hold
+    ("10000000",'1','1','1',"11","10000000"),--load 128 into register
+    ("10000000",'1','1','1',"10","11000000"),--shift right (192)
+    ("10000000",'1','1','1',"01","10000000"),--shift left (128)
+    ("10000000",'1','1','1',"00","10000000"),--hold
     --ENABLE = 0 for this block
-    ("00010000",'0',"11",'0','0',"00000000"),--load 16 into register enable is 0 so does nothing
-    ("00010000",'0',"01",'0','0',"00000000"),--shift left (32) enable is 0 so does nothing
-    ("00010000",'0',"10",'0','0',"00000000"),--shift right (16) enable is 0 so does nothing
-    ("00010000",'0',"00",'0','0',"00000000"),--hold enable is 0 so does nothing
-    ("01100000",'0',"11",'0','0',"00000000"),--load 96 into register enable is 0 so does nothing
-    ("01100000",'0',"01",'0','0',"00000000"),--shift left (192) enable is 0 so does nothing
-    ("01100000",'0',"10",'0','0',"00000000"),--shift right (96) enable is 0 so does nothing
-    ("01100000",'0',"00",'0','0',"00000000"),--hold enable is 0 so does nothing
-    ("00100000",'1',"11",'0','0',"00000000"),--load 32 into register enable is 0 so does nothing
-    ("00100000",'1',"01",'0','0',"00000000"),--shift left (64) enable is 0 so does nothing
-    ("00100000",'1',"10",'0','0',"00000000"),--shift right (32) enable is 0 so does nothing
-    ("00100000",'1',"00",'0','0',"00000000"),--hold enable is 0 so does nothing
-    ("01110000",'1',"11",'0','0',"00000000"),--load 112 into register enable is 0 so does nothing
-    ("01110000",'1',"01",'0','0',"00000000"),--shift left (224) enable is 0 so does nothing
-    ("01110000",'1',"10",'0','0',"00000000"),--shift right (112) enable is 0 so does nothing
-    ("01110000",'1',"00",'0','0',"00000000"),--hold enable is 0 so does nothing
-    ("00010000",'0',"11",'1','0',"00000000"),--load 16 into register enable is 0 so does nothing
-    ("00010000",'0',"01",'1','0',"00000000"),--shift left (32) enable is 0 so does nothing
-    ("00010000",'0',"10",'1','0',"00000000"),--shift right (16) enable is 0 so does nothing
-    ("00010000",'0',"00",'1','0',"00000000"),--hold enable is 0 so does nothing
-    ("01010000",'0',"11",'1','0',"00000000"),--load 82 into register enable is 0 so does nothing
-    ("01010000",'0',"01",'1','0',"00000000"),--shift left (164) enable is 0 so does nothing
-    ("01010000",'0',"10",'1','0',"00000000"),--shift right (82) enable is 0 so does nothing
-    ("01010000",'0',"00",'1','0',"00000000"),--hold enable is 0 so does nothing
-    ("00010000",'1',"11",'1','0',"00000000"),--load 16 into register enable is 0 so does nothing
-    ("00010000",'1',"01",'1','0',"00000000"),--shift left (32) enable is 0 so does nothing
-    ("00010000",'1',"10",'1','0',"00000000"),--shift right (16) enable is 0 so does nothing
-    ("00010000",'1',"00",'1','0',"00000000"),--hold enable is 0 so does nothing
-    ("10000000",'1',"11",'1','0',"00000000"),--load 128 into register enable is 0 so does nothing
-    ("10000000",'1',"10",'1','0',"00000000"),--shift right (192) enable is 0 so does nothing
-    ("10000000",'1',"01",'1','0',"00000000"),--shift left (128) enable is 0 so does nothing
-    ("10000000",'1',"00",'1','0',"00000000"));--hold enable is 0 so does nothing
+    ("00010000",'0','0','0',"11","00000000"),--load 16 into register enable is 0 so does nothing
+    ("00010000",'0','0','0',"01","00000000"),--shift left (32) enable is 0 so does nothing
+    ("00010000",'0','0','0',"10","00000000"),--shift right (16) enable is 0 so does nothing
+    ("00010000",'0','0','0',"00","00000000"),--hold enable is 0 so does nothing
+    ("01100000",'0','0','0',"11","00000000"),--load 96 into register enable is 0 so does nothing
+    ("01100000",'0','0','0',"01","00000000"),--shift left (192) enable is 0 so does nothing
+    ("01100000",'0','0','0',"10","00000000"),--shift right (96) enable is 0 so does nothing
+    ("01100000",'0','0','0',"00","00000000"),--hold enable is 0 so does nothing
+    ("00100000",'1','0','0',"11","00000000"),--load 32 into register enable is 0 so does nothing
+    ("00100000",'1','0','0',"01","00000000"),--shift left (64) enable is 0 so does nothing
+    ("00100000",'1','0','0',"10","00000000"),--shift right (32) enable is 0 so does nothing
+    ("00100000",'1','0','0',"00","00000000"),--hold enable is 0 so does nothing
+    ("01110000",'1','0','0',"11","00000000"),--load 112 into register enable is 0 so does nothing
+    ("01110000",'1','0','0',"01","00000000"),--shift left (224) enable is 0 so does nothing
+    ("01110000",'1','0','0',"10","00000000"),--shift right (112) enable is 0 so does nothing
+    ("01110000",'1','0','0',"00","00000000"),--hold enable is 0 so does nothing
+    ("00010000",'0','1','0',"11","00000000"),--load 16 into register enable is 0 so does nothing
+    ("00010000",'0','1','0',"01","00000000"),--shift left (32) enable is 0 so does nothing
+    ("00010000",'0','1','0',"10","00000000"),--shift right (16) enable is 0 so does nothing
+    ("00010000",'0','1','0',"00","00000000"),--hold enable is 0 so does nothing
+    ("01010000",'0','1','0',"11","00000000"),--load 82 into register enable is 0 so does nothing
+    ("01010000",'0','1','0',"01","00000000"),--shift left (164) enable is 0 so does nothing
+    ("01010000",'0','1','0',"10","00000000"),--shift right (82) enable is 0 so does nothing
+    ("01010000",'0','1','0',"00","00000000"),--hold enable is 0 so does nothing
+    ("00010000",'1','1','0',"11","00000000"),--load 16 into register enable is 0 so does nothing
+    ("00010000",'1','1','0',"01","00000000"),--shift left (32) enable is 0 so does nothing
+    ("00010000",'1','1','0',"10","00000000"),--shift right (16) enable is 0 so does nothing
+    ("00010000",'1','1','0',"00","00000000"),--hold enable is 0 so does nothing
+    ("10000000",'1','1','0',"11","00000000"),--load 128 into register enable is 0 so does nothing
+    ("10000000",'1','1','0',"10","00000000"),--shift right (192) enable is 0 so does nothing
+    ("10000000",'1','1','0',"01","00000000"),--shift left (128) enable is 0 so does nothing
+    ("10000000",'1','1','0',"00","00000000"));--hold enable is 0 so does nothing
                                  
 begin
 --  Check each pattern.
