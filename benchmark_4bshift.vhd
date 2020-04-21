@@ -1,11 +1,11 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity shift_reg_tb is
-end shift_reg_tb;
-architecture behav of shift_reg_tb is
+entity benchmark_4bshift is
+end benchmark_4bshift;
+architecture behav of benchmark_4bshift is
 --  Declaration of the component that will be instantiated.
-component shift_reg
+component bitreg_4shift
     port (      I:    in std_logic_vector (3 downto 0);
         I_SHIFT_IN: in std_logic;
         sel:        in std_logic_vector(1 downto 0); -- 00:hold; 01: shift left; 10: shift right; 11: load
@@ -22,9 +22,10 @@ signal sel : std_logic_vector(1 downto 0);
 
 begin
 --  Component instantiation.
-shift_reg_0: shift_reg port map (I => i, I_SHIFT_IN => i_shift_in, sel => sel, clock => clk, enable => enable, O => o);
+shift_reg_0: bitreg_4shift port map (I => i, I_SHIFT_IN => i_shift_in, sel => sel, clock => clk, enable => enable, O => o);
 --  This process does the real job.
 process
+
     type pattern_type is record
 --  The inputs of the shift_reg.
         i: std_logic_vector (3 downto 0);
