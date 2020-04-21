@@ -40,6 +40,7 @@ bitCarry2 <=
 bitreg_shift1: bitreg_4shift port map(I(3 downto 0), bitCarry1, enable, sel, clock, sig(3 downto 0));
 bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clock, sig(7 downto 4));
 
+        
 --process statements are in the component since this is structural architecture
 --First 4bit shift reg uses sig 3 downto 0
 --    sig(3) = carry of second reg when shift right
