@@ -15,7 +15,7 @@ architecture Structural of bitreg_8shift is
 component bitreg_4shift is
     Port( I : in STD_LOGIC_VECTOR (3 downto 0);
           I_Shift_In : in STD_LOGIC;
-          sel : in STF_LOGIC_VECTOR (3 downto 0);
+          sel : in STD_LOGIC_VECTOR (3 downto 0);
           clock : in STD_LOGIC;
           enable : in STD_LOGIC;
           O : out STD_LOGIC_VECTOR (3 downto 0));
