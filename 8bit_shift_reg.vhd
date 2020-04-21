@@ -21,8 +21,8 @@ component bitreg_4shift is
           O : out STD_LOGIC_VECTOR (3 downto 0));
 end component;
 
-signal 4bitCarry1: STD_LOGIC;
-signal 4bitCarry2: STD_LOGIC;
+signal bitCarry1: STD_LOGIC;
+signal bitCarry2: STD_LOGIC;
 signal sig : STD_LOGIC_VECTOR (7 downto 0) := "0000"; --start signal at 0
 
 begin
@@ -37,8 +37,8 @@ bitreg_shift2: bitreg_4shift port map(I(7 downto 4), 4bitCarry2, sel, clock, ena
 --    sig(7) = I_Shift_In when shift right, also carrys it's sig(4) as in for first reg
 --    sig(4) = carry of first reg when shift left
 
-with sel select 4bitCarry1 <= I_Shift_In when "01", sig(4) when "10", '0' when others;
-with sel select 4bitCarry2 <= sig(3) when "01", I_Shift_In when "10", '0' when others;
+with sel select bitCarry1 <= I_Shift_In when "01", sig(4) when "10", '0' when others;
+with sel select bitCarry2 <= sig(3) when "01", I_Shift_In when "10", '0' when others;
 
 O <= sig;
 end Structural;
