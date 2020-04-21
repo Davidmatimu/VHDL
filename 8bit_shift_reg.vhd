@@ -27,6 +27,14 @@ signal bitCarry2: STD_LOGIC;
 signal sig : STD_LOGIC_VECTOR (7 downto 0) := "00000000"; --start signal at 0
 
 begin
+with sel select bitCarry1 <=
+    I_Shift_In when "01",
+    sig(4) when "10",
+    '0' when others;
+with sel select bitCarry2 <=
+    sig(3) when "01",
+    I_Shift_In when"10",
+    '0' when others;
 bitreg_shift1: bitreg_4shift port map(I(3 downto 0), bitCarry1, enable, sel, clock, sig(3 downto 0));
 bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clock, sig(7 downto 4));
 
@@ -38,12 +46,5 @@ bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clo
 --    sig(7) = I_Shift_In when shift right, also carrys it's sig(4) as in for first reg
 --    sig(4) = carry of first reg when shift left
 
-Carry: if sel = "01" generate
-    bitCarry1 <= I_Shift_In;
-    bitCarry2 <= sig(3);
-elsif sel = "10" generate
-    bit1Carry <= sig(4);
-    bit2Carry <= I_Shift_In;
-end generate Carry;
 O <= sig;
 end Structural;
