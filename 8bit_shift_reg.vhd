@@ -26,8 +26,8 @@ signal bitCarry2: STD_LOGIC;
 signal sig : STD_LOGIC_VECTOR (7 downto 0) := "00000000"; --start signal at 0
 
 begin
-bitreg_shift1: bitreg_4shift port map(I(3 downto 0), bitCarry1, clock, enable, sel, sig(3 downto 0));
-bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, clock, enable, sel, sig(7 downto 4));
+bitreg_shift1: bitreg_4shift port map(I(3 downto 0), bitCarry1, enable, sel, clock, sig(3 downto 0));
+bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clock, sig(7 downto 4));
 
 --process statements are in the component since this is structural architecture
 --First 4bit shift reg uses sig 3 downto 0
