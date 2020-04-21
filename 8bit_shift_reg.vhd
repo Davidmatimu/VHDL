@@ -9,6 +9,7 @@ entity bitreg_8shift is
            clock : in STD_LOGIC;
            enable : in STD_LOGIC;
            O : out STD_LOGIC_VECTOR (7 downto 0));
+           SHIFT_OUT : out STD_LOGIC;
 end bitreg_8shift;
 
 architecture Structural of bitreg_8shift is
@@ -37,15 +38,12 @@ bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clo
 --    sig(7) = I_Shift_In when shift right, also carrys it's sig(4) as in for first reg
 --    sig(4) = carry of first reg when shift left
 
-if sel = "01" then
+if sel = "01" generate
     bitCarry1 <= I_Shift_In;
     bitCarry2 <= sig(3);
-elsif sel = "10" then
+elsif sel = "10" generate
     bit1Carry <= sig(4);
     bit2Carry <= I_Shift_In;
-else
-    bit1Carry <= '0';
-    bit2Carry <= '0';
-end if;
+end generate;
 O <= sig;
 end Structural;
