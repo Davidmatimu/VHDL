@@ -5,7 +5,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity bitreg_8shift is
     Port ( I : in STD_LOGIC_VECTOR (7 downto 0);
            I_Shift_In : in STD_LOGIC;
-           sel : in STD_LOGIC_VECTOR (1 downto 0);-- 00:hold; 01: shift left; 10: shift right; 11: load
+           sel1 : in STD_LOGIC_VECTOR (1 downto 0);-- 00:hold; 01: shift left; 10: shift right; 11: load
            clock : in STD_LOGIC;
            enable : in STD_LOGIC;
            O : out STD_LOGIC_VECTOR (7 downto 0));
@@ -28,17 +28,17 @@ signal sig : STD_LOGIC_VECTOR (7 downto 0) := "00000000"; --start signal at 0
 
 begin
 bitCarry1 <=
-    I_Shift_In when sel = "01" else
-    sig(4) when sel = "10" else
-    '0' when sel = "00" else
-    '0' when sel = "11";
+    I_Shift_In when sel1 = "01" else
+    sig(4) when sel1 = "10" else
+    '0' when sel1 = "00" else
+    '0' when sel1 = "11";
 bitCarry2 <=
-    sig(3) when sel = "01" else
-    I_Shift_In when sel = "10" else
-    '0' when sel = "00" else
-    '0' when sel = "11";
-bitreg_shift1: bitreg_4shift port map(I(3 downto 0), bitCarry1, enable, sel, clock, sig(3 downto 0));
-bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clock, sig(7 downto 4));
+    sig(3) when sel1 = "01" else
+    I_Shift_In when sel1 = "10" else
+    '0' when sel1 = "00" else
+    '0' when sel1 = "11";
+bitreg_shift1: bitreg_4shift port map(I(3 downto 0), bitCarry1, enable, sel1, clock, sig(3 downto 0));
+bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel1, clock, sig(7 downto 4));
 
         
 --process statements are in the component since this is structural architecture
