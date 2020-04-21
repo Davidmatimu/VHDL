@@ -2,17 +2,17 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity 8bitreg_shift is
+entity bitreg_8shift is
     Port ( I : in STD_LOGIC_VECTOR (7 downto 0);
            I_Shift_In : in STD_LOGIC;
            sel : in STD_LOGIC_VECTOR (1 downto 0);-- 00:hold; 01: shift left; 10: shift right; 11: load
            clock : in STD_LOGIC;
            enable : in STD_LOGIC;
            O : out STD_LOGIC_VECTOR (7 downto 0));
-end 8bitreg_shift;
+end bitreg_8shift;
 
-architecture Structural of bitreg_shift is
-component bitreg_shift is
+architecture Structural of bitreg_8shift is
+component bitreg_4shift is
     Port( I : in STD_LOGIC_VECTOR (3 downto 0);
           I_Shift_In : in STD_LOGIC;
           sel : in STF_LOGIC_VECTOR (3 downto 0);
@@ -26,8 +26,8 @@ signal 4bitCarry2: STD_LOGIC;
 signal sig : STD_LOGIC_VECTOR (7 downto 0) := "0000"; --start signal at 0
 
 begin
-bitreg_shift1: bitreg_shift port map(I(3 downto 0), 4bitCarry1, sel, clock, enable, sig(3 downto 0));
-bitreg_shift2: bitreg_shift port map(I(7 downto 4), 4bitCarry2, sel, clock, enable, sig(7 downto 4));
+bitreg_shift1: bitreg_4shift port map(I(3 downto 0), 4bitCarry1, sel, clock, enable, sig(3 downto 0));
+bitreg_shift2: bitreg_4shift port map(I(7 downto 4), 4bitCarry2, sel, clock, enable, sig(7 downto 4));
 
 --process statements are in the component since this is structural architecture
 --First 4bit shift reg uses sig 3 downto 0
