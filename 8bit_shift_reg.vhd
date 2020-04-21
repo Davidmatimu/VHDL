@@ -23,7 +23,7 @@ end component;
 
 signal bitCarry1: STD_LOGIC;
 signal bitCarry2: STD_LOGIC;
-signal sig : STD_LOGIC_VECTOR (7 downto 0) := "0000"; --start signal at 0
+signal sig : STD_LOGIC_VECTOR (7 downto 0) := "00000000"; --start signal at 0
 
 begin
 bitreg_shift1: bitreg_4shift port map(I(3 downto 0), bitCarry1, sel, clock, enable, sig(3 downto 0));
