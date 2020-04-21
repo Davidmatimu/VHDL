@@ -16,6 +16,7 @@ signal sig : STD_LOGIC_VECTOR (3 downto 0) := "0000"; --start signal at 0
 begin
 shift:process(I, I_Shift_In, sel, clock, enable)
 begin
+
 if enable = '0' then
     sig <= "0000"; --sig is signal so has "memory"
 elsif (clock'event and clock = '1' and enable = '1') then
@@ -28,8 +29,9 @@ elsif (clock'event and clock = '1' and enable = '1') then
         sig(3) <= I_SHIFT_IN;
     elsif sel = "11" then --load
         sig <= I;--load whatever is being input into register
-    endif;
-endif;
+    end if;
+end if;
 end process shift;
+
 O <= sig;
 end Behavioral;
