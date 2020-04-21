@@ -71,7 +71,7 @@ process
     ("10000000",'1','1','1',"01","10000001"),--shift left (128)             30
     ("01110000",'1','0','1',"00","10000001"),--hold                         31
     ("10000000",'1','1','1',"00","10000001"),--hold                         32
-    --ENABLE = 0 for this block so none of the signals change for waveform
+    --ENABLE = 0 for this block so output signal will not change for waveform
     ("00010000",'0','0','0',"11","10000001"),--load 16 into register       33
     ("00010000",'0','1','0',"11","10000001"),--load 16 into register        34
     ("00010000",'0','0','0',"01","10000001"),--shift left (32)              35
