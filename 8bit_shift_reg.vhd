@@ -30,11 +30,13 @@ begin
 bitCarry1 <=
     I_Shift_In when sel = "01" else
     sig(4) when sel = "10" else
-    '0' when sel = others;
+    '0' when sel = "00" else
+    '0' when sel = "11";
 bitCarry2 <=
     sig(3) when sel = "01" else
     I_Shift_In when sel = "10" else
-    '0' when sel = others;
+    '0' when sel = "00" else
+    '0' when sel = "11";
 bitreg_shift1: bitreg_4shift port map(I(3 downto 0), bitCarry1, enable, sel, clock, sig(3 downto 0));
 bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clock, sig(7 downto 4));
 
