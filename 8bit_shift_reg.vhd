@@ -37,8 +37,15 @@ bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clo
 --    sig(7) = I_Shift_In when shift right, also carrys it's sig(4) as in for first reg
 --    sig(4) = carry of first reg when shift left
 
-with sel select bitCarry1 <= I_Shift_In when "01", sig(4) when "10", '0' when others;
-with sel select bitCarry2 <= sig(3) when "01", I_Shift_In when "10", '0' when others;
-
+if sel = "01" then
+    bitCarry1 <= I_Shift_In;
+    bitCarry2 <= sig(3);
+elif sel = "10" then
+    bit1Carry <= sig(4);
+    bit2Carry <= I_Shift_In;
+else
+    bit1Carry <= '0';
+    bit2Carry <= '0';
+end if;
 O <= sig;
 end Structural;
