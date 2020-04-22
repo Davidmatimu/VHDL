@@ -22,7 +22,7 @@ signal sel : std_logic_vector(1 downto 0);
 
 begin
 --  Component instantiation.
-shift_reg_0: bitreg_8bshift port map (I => i, I_SHIFT_IN => i_shift_in, sel => sel, clock => clk, enable => enable, O => o);
+shift_reg_0: bitreg_8shift port map (I => i, I_SHIFT_IN => i_shift_in, sel => sel, clock => clk, enable => enable, O => o);
 --  This process does the real job.
 process
     type pattern_type is record
