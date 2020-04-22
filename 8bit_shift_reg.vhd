@@ -28,17 +28,17 @@ begin
 Carrying:process(clock)
 begin
     if sel = "00" then
-        bit1Carry1 <= '0';
-        bit1Carry2 <= '0';
+        bitCarry1 <= '0';
+        bitCarry2 <= '0';
     elsif sel = "01" then
-        bit1Carry1 <= I_Shift_In;
-        bit1Carry2 <= I(3);
+        bitCarry1 <= I_Shift_In;
+        bitCarry2 <= I(3);
     elsif sel = "10" then
-        bit1Carry1 <= I(4);
-        bit1Carry2 <= I_Shift_In;
+        bitCarry1 <= I(4);
+        bitCarry2 <= I_Shift_In;
     elsif sel = "11" then
-        bit1Carry1 <= '0';
-        bit1Carry2 <= '0';
+        bitCarry1 <= '0';
+        bitCarry2 <= '0';
 end if;
 --bitCarry1 <=
 --    I_Shift_In when sel = "01" else
@@ -63,5 +63,5 @@ bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clo
 --    sig(7) = I_Shift_In when shift right, also carrys it's sig(4) as in for first reg
 --    sig(4) = carry of first reg when shift left
 
-O <= sig;
+--O <= sig;
 end Structural;
