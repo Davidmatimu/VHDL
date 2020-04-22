@@ -5,13 +5,13 @@ entity benchmark_8bshift is
 end benchmark_8bshift;
 architecture behav of benchmark_8bshift is
 --  Declaration of the component that will be instantiated.
-component bitreg_4shift
-    port (      I:    in std_logic_vector (3 downto 0);
-        I_SHIFT_IN: in std_logic;
-        sel:        in std_logic_vector(1 downto 0); -- 00:hold; 01: shift left; 10: shift right; 11: load
-        clock:            in std_logic; 
-        enable:           in std_logic;
-        O:    out std_logic_vector(3 downto 0)
+component bitreg_8shift
+    port (      I8:    in std_logic_vector (3 downto 0);
+        I8_SHIFT_IN: in std_logic;
+        sel8:        in std_logic_vector(1 downto 0); -- 00:hold; 01: shift left; 10: shift right; 11: load
+        clock8:            in std_logic; 
+        enable8:           in std_logic;
+        O8:    out std_logic_vector(3 downto 0)
     );
 end component;
 --  Specifies which entity is bound with the component.
