@@ -16,7 +16,7 @@ component bitreg_8shift
 end component;
 --  Specifies which entity is bound with the component.
 -- for shift_reg_0: shift_reg use entity work.shift_reg(rtl);
-signal i, o : std_logic_vector(3 downto 0);
+signal i, o : std_logic_vector(7 downto 0);
 signal i_shift_in, clk, enable : std_logic;
 signal sel : std_logic_vector(1 downto 0);
 
