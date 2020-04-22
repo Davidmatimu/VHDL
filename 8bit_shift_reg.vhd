@@ -32,11 +32,11 @@ begin
         bitCarry1 <= '0';
         bitCarry2 <= '0';
     elsif sel8 = "01" then
-        bitCarry1 <= I_Shift_In8;
+        bitCarry1 <= I8_Shift_In;
         bitCarry2 <= I8(3);
     elsif sel8 = "10" then
         bitCarry1 <= I8(4);
-        bitCarry2 <= I_Shift_In8;
+        bitCarry2 <= I8_Shift_In;
     elsif sel8 = "11" then
         bitCarry1 <= '0';
         bitCarry2 <= '0';
@@ -64,5 +64,5 @@ bitreg_shift2: bitreg_4shift port map(I=>I8(7 downto 4), I_Shift_In=>bitCarry2, 
 --    sig(7) = I_Shift_In when shift right, also carrys it's sig(4) as in for first reg
 --    sig(4) = carry of first reg when shift left
 
-O <= sig;
+O8 <= sig;
 end Structural;
