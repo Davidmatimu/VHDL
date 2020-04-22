@@ -27,11 +27,11 @@ shift_reg_0: bitreg_8shift port map (I => i, I_SHIFT_IN => i_shift_in, sel => se
 process
     type pattern_type is record
 --  The inputs of the shift_reg.
-        i: std_logic_vector (3 downto 0);
+        i: std_logic_vector (7 downto 0);
         i_shift_in, clock, enable: std_logic;
         sel: std_logic_vector(1 downto 0);
 --  The expected outputs of the shift_reg.
-        o: std_logic_vector (3 downto 0);
+        o: std_logic_vector (7 downto 0);
     end record;
 --  The patterns to apply.
 
