@@ -51,8 +51,8 @@ end if;
 --    '0' when sel = "00" else
 --    '0' when sel = "11";
 end process Carrying;
-bitreg_shift1: bitreg_4shift port map(I(3 downto 0), bitCarry1, enable, sel, clock, sig(3 downto 0));
-bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clock, sig(7 downto 4));
+bitreg_shift1: bitreg_4shift port map(I(3 downto 0), bitCarry1, enable, sel, clock, O(3 downto 0));
+bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clock, O(7 downto 4));
 
         
 --process statements are in the component since this is structural architecture
