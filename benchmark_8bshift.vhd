@@ -40,7 +40,7 @@ process
 --Input,i_shift_in(shiftleft or right),sel,clk,enable,O
 --10 shiftleft, 01 shiftright, 11 load, 00 hold
     (("00010000",'0','0','1',"11","00000000"),--load 16 into register       1ns
-    ("00010000",'0','1','1',"11","00010000"),--load 16 into register        2ns
+    ("00010000",'0','1','1',"11","00000000"),--load 16 into register        2ns
     ("00010000",'0','0','1',"01","00010000"),--shift left (32)              3
     ("00010000",'0','1','1',"01","00100000"),--shift left (32)              4
     ("00010000",'0','0','1',"10","00100000"),--shift right (16)             5
