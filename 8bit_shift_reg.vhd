@@ -26,7 +26,7 @@ signal bitCarry2: STD_LOGIC;
 signal sig : STD_LOGIC_VECTOR (7 downto 0) := "00000000"; --start signal at 0
 
 begin
-Carrying:process(sel)
+Carrying:process(clock)
 begin
     if sel = "00" then
         bit1Carry1 <= '0';
