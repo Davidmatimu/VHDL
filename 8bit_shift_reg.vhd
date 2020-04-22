@@ -23,7 +23,6 @@ end component;
 
 signal bitCarry1: STD_LOGIC;
 signal bitCarry2: STD_LOGIC;
-signal sig : STD_LOGIC_VECTOR (7 downto 0) := "00000000"; --start signal at 0
 
 begin
 Carrying:process(clock)
@@ -33,9 +32,9 @@ begin
         bit1Carry2 <= '0';
     elsif sel = "01" then
         bit1Carry1 <= I_Shift_In;
-        bit1Carry2 <= sig(3);
+        bit1Carry2 <= I(3);
     elsif sel = "10" then
-        bit1Carry1 <= sig(4);
+        bit1Carry1 <= I(4);
         bit1Carry2 <= I_Shift_In;
     elsif sel = "11" then
         bit1Carry1 <= '0';
