@@ -23,6 +23,7 @@ end component;
 
 signal bitCarry1: STD_LOGIC;
 signal bitCarry2: STD_LOGIC;
+signal sig: STD_LOGIC_VECTOR (7 downto 0) := "00000000";
 
 begin
 Carrying:process(clock)
@@ -32,9 +33,9 @@ begin
         bitCarry2 <= '0';
     elsif sel = "01" then
         bitCarry1 <= I_Shift_In;
-        bitCarry2 <= I(3);
+        bitCarry2 <= sig(3);
     elsif sel = "10" then
-        bitCarry1 <= I(4);
+        bitCarry1 <= sig(4);
         bitCarry2 <= I_Shift_In;
     elsif sel = "11" then
         bitCarry1 <= '0';
@@ -51,8 +52,8 @@ end if;
 --    '0' when sel = "00" else
 --    '0' when sel = "11";
 end process Carrying;
-bitreg_shift1: bitreg_4shift port map(I(3 downto 0), bitCarry1, enable, sel, clock, O(3 downto 0));
-bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clock, O(7 downto 4));
+bitreg_shift1: bitreg_4shift port map(I(3 downto 0), bitCarry1, enable, sel, clock, sig(3 downto 0));
+bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clock, sig(7 downto 4));
 
         
 --process statements are in the component since this is structural architecture
@@ -63,5 +64,5 @@ bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clo
 --    sig(7) = I_Shift_In when shift right, also carrys it's sig(4) as in for first reg
 --    sig(4) = carry of first reg when shift left
 
---O <= sig;
+O <= sig;
 end Structural;
