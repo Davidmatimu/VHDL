@@ -28,16 +28,28 @@ signal sig : STD_LOGIC_VECTOR (7 downto 0) := "00000000"; --start signal at 0
 begin
 Carrying:process(sel)
 begin
-bitCarry1 <=
-    I_Shift_In when sel = "01" else
-    sig(4) when sel = "10" else
-    '0' when sel = "00" else
-    '0' when sel = "11";
-bitCarry2 <=
-    sig(3) when sel = "01" else
-    I_Shift_In when sel = "10" else
-    '0' when sel = "00" else
-    '0' when sel = "11";
+    if sel = "00" then
+        bit1Carry1 <= '0';
+        bit1Carry2 <= '0';
+    if sel = "01" then
+        bit1Carry1 <= I_Shift_In;
+        bit1Carry2 <= sig(3);
+    if sel = "10" then
+        bit1Carry1 <= sig(4);
+        bit1Carry2 <= I_Shift_In;
+    if sel = "11" then
+        bit1Carry1 <= '0';
+        bit1Carry2 <= '0';
+--bitCarry1 <=
+--    I_Shift_In when sel = "01" else
+--    sig(4) when sel = "10" else
+--    '0' when sel = "00" else
+--    '0' when sel = "11";
+--bitCarry2 <=
+--    sig(3) when sel = "01" else
+--    I_Shift_In when sel = "10" else
+--    '0' when sel = "00" else
+--    '0' when sel = "11";
 end process Carrying;
 bitreg_shift1: bitreg_4shift port map(I(3 downto 0), bitCarry1, enable, sel, clock, sig(3 downto 0));
 bitreg_shift2: bitreg_4shift port map(I(7 downto 4), bitCarry2, enable, sel, clock, sig(7 downto 4));
