@@ -31,15 +31,16 @@ begin
     if sel = "00" then
         bit1Carry1 <= '0';
         bit1Carry2 <= '0';
-    if sel = "01" then
+    elsif sel = "01" then
         bit1Carry1 <= I_Shift_In;
         bit1Carry2 <= sig(3);
-    if sel = "10" then
+    elsif sel = "10" then
         bit1Carry1 <= sig(4);
         bit1Carry2 <= I_Shift_In;
-    if sel = "11" then
+    elsif sel = "11" then
         bit1Carry1 <= '0';
         bit1Carry2 <= '0';
+end if;
 --bitCarry1 <=
 --    I_Shift_In when sel = "01" else
 --    sig(4) when sel = "10" else
