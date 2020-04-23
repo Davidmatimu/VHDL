@@ -14,7 +14,7 @@ end bitreg_4shift;
 architecture Behavioral of bitreg_4shift is
 signal sig : STD_LOGIC_VECTOR (3 downto 0) := "0000"; --start signal at 0
 begin
-shift:process(I, I_Shift_In, sel, clock, enable)
+shift:process(clock)
 begin
 
 if enable = '0' then
