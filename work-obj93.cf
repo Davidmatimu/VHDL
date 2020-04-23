@@ -1,0 +1,13 @@
+v 4
+file . "benchmark_8bshift.vhd" "777c72c1ad0841a9ed5d300114824fa98430a753" "20200423135528.660":
+  entity benchmark_8bshift at 1( 0) + 0 on 181;
+  architecture behav of benchmark_8bshift at 6( 95) + 0 on 182;
+file . "8bit_shift_reg.vhd" "32700b97307224f37d6be3452d0b2d65aaea6dda" "20200423135522.616":
+  entity bitreg_8shift at 1( 0) + 0 on 179;
+  architecture structural of bitreg_8shift at 14( 443) + 0 on 180;
+file . "benchmark_4bshift.vhd" "0b9931ec6ed52768016806ace77edb2ad2416359" "20200423135450.167":
+  entity benchmark_4bshift at 1( 0) + 0 on 177;
+  architecture behav of benchmark_4bshift at 6( 95) + 0 on 178;
+file . "4bit_shift_reg.vhd" "3fe01b1eaf8da419e1e16979c7f5d77051693215" "20200423135445.315":
+  entity bitreg_4shift at 2( 1) + 0 on 175;
+  architecture behavioral of bitreg_4shift at 14( 398) + 0 on 176;
