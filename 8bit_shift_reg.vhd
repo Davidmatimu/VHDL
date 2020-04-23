@@ -48,19 +48,9 @@ begin
         bitCarry1 <= '0';
         bitCarry2 <= '0';
 end if;
---bitCarry1 <=
---    I_Shift_In when sel = "01" else
---    sig(4) when sel = "10" else
---    '0' when sel = "00" else
---    '0' when sel = "11";
---bitCarry2 <=
---    sig(3) when sel = "01" else
---    I_Shift_In when sel = "10" else
---    '0' when sel = "00" else
---    '0' when sel = "11";
 end process Carrying;
-bitreg_shift1: bitreg_4shift port map(I=>I8(3 downto 0), I_Shift_In=>bitCarry1, enable=>enable8, sel=>sel8, clock=>clock8, O=>O8(3 downto 0));
-bitreg_shift2: bitreg_4shift port map(I=>I8(7 downto 4), I_Shift_In=>bitCarry2, enable=>enable8, sel=>sel8, clock=>clock8, O=>O8(7 downto 4));
+bitreg_shift1: bitreg_4shift port map(I=>I8(3 downto 0), I_Shift_In=>bitCarry1, enable=>enable8, sel=>sel8, clock=>clock8, O=>sig(3 downto 0));
+bitreg_shift2: bitreg_4shift port map(I=>I8(7 downto 4), I_Shift_In=>bitCarry2, enable=>enable8, sel=>sel8, clock=>clock8, O=>sig(7 downto 4));
 
 
 O8 <= sig;
