@@ -42,7 +42,7 @@ process
 --10 shiftleft, 01 shiftright, 11 load, 00 hold
     (("0001",'0','0','1',"11","0000"),--load 1 into register    
     ("0001",'0','1','1',"11","0001"),--load 1 into register    
-    ("0001",'0','1','1',"11","1001"),--load 9 into register not rising edge triggered    
+    ("1001",'0','1','1',"11","0001"),--load 9 into register not rising edge triggered    
     ("0001",'0','0','1',"01","0001"),--shift left (2)           
     ("0001",'0','1','1',"01","0010"),--shift left (2)           
     ("0001",'0','1','1',"01","0010"),--shift left (2) not rising edge triggered           
@@ -52,9 +52,9 @@ process
     ("0001",'0','0','1',"00","0001"),--hold                     
     ("0001",'0','1','1',"00","0001"),--hold                     
     ("0001",'0','1','1',"00","0001"),--hold not rising edge triggered                    
-    ("0111",'1','0','1',"11","1001"),--load 7 into register     
+    ("0111",'1','0','1',"11","0001"),--load 7 into register     
     ("1000",'1','1','1',"11","1000"),--load 8 into register     
-    ("1000",'1','1','1',"11","1010"),--load 10 into register not rising edge triggered     
+    ("1010",'1','1','1',"11","1000"),--load 10 into register not rising edge triggered     
     ("0111",'1','0','1',"10","1000"),--shift right (7)          
     ("1000",'1','1','1',"10","1100"),--shift right (12)          
     ("1000",'1','1','1',"10","1100"),--shift right (12) not rising edge triggered         
