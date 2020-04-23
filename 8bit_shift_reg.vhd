@@ -40,9 +40,9 @@ begin
         bitCarry2 <= '0';
     elsif sel8 = "01" then
         bitCarry1 <= I8_Shift_In;
-        bitCarry2 <= I8(3);
+        bitCarry2 <= sig(3);
     elsif sel8 = "10" then
-        bitCarry1 <= I8(4);
+        bitCarry1 <= sig(4);
         bitCarry2 <= I8_Shift_In;
     elsif sel8 = "11" then
         bitCarry1 <= '0';
